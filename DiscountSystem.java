@@ -190,9 +190,6 @@ class DiscountSystem {
             Scanner inputAddLaptop = new Scanner(System.in);
             Integer addLaptop = Integer.parseInt(inputAddLaptop.nextLine());
             if (addLaptop == 0) {
-                // Cart newLaptop = new Cart(selectedScreenName, selectedScreenPrice, selectedRamName, selectedRamPrice, selectedStorageName, selectedStoragePrice, selectedProcessorName, selectedProcessorPrice, subtotal); 
-                // alShoppingCart.add(newLaptop);  
-                
                 addLaptop(alShoppingCart, selectedScreenName, selectedScreenPrice, selectedRamName, selectedRamPrice, selectedStorageName, selectedStoragePrice, selectedProcessorName, selectedProcessorPrice, subtotal);
 
                 System.out.println("\nLaptop is added to the shopping cart.");
@@ -290,8 +287,6 @@ class DiscountSystem {
         }
 
         System.out.println("----------------------------------------------------------------------");
-        
-
 
     }
 }
