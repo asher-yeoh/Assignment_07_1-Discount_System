@@ -55,6 +55,22 @@ class DiscountSystem {
             System.out.println("(" + (i) + ") " + alProcessor.get(i).name + " - Price: RM " + alProcessor.get(i).price);
         }
     }
+
+    static int checkOutCart(ArrayList<Cart> alShoppingCart, int basePrice, int grandTotal) {
+        for (int i = 0; i < alShoppingCart.size(); i++) {
+            System.out.println("\nItem (" + (i+1) + ")");
+            System.out.println("Laptop base price: RM " + basePrice);
+            System.out.println("Selected Screen: " + alShoppingCart.get(i).nameScreen + " - Price: RM " + alShoppingCart.get(i).priceScreen);
+            System.out.println("Selected RAM: " + alShoppingCart.get(i).nameRam + " - Price: RM " + alShoppingCart.get(i).priceRam);
+            System.out.println("Selected Storage: " + alShoppingCart.get(i).nameStorage + " - Price: RM " + alShoppingCart.get(i).priceStorage);
+            System.out.println("Selected Processor: " + alShoppingCart.get(i).nameProcessor + " - Price: RM " + alShoppingCart.get(i).priceProcessor);
+            System.out.println("Subtotal: RM " + alShoppingCart.get(i).subtotal);
+
+            grandTotal += alShoppingCart.get(i).subtotal;
+        }
+
+        return grandTotal;
+    }
     public static void main(String args[]){
 
         ArrayList<Screen> alScreen = new ArrayList<Screen>();
@@ -221,17 +237,8 @@ class DiscountSystem {
             System.out.println("----------------------------------------------------------------------");
             System.out.println("You are now at the checkout page.");
             System.out.println("\nCurrent item(s) in the shopping cart:");
-            for (int i = 0; i < alShoppingCart.size(); i++) {
-                System.out.println("\nItem (" + (i+1) + ")");
-                System.out.println("Laptop base price: RM " + basePrice);
-                System.out.println("Selected Screen: " + alShoppingCart.get(i).nameScreen + " - Price: RM " + alShoppingCart.get(i).priceScreen);
-                System.out.println("Selected RAM: " + alShoppingCart.get(i).nameRam + " - Price: RM " + alShoppingCart.get(i).priceRam);
-                System.out.println("Selected Storage: " + alShoppingCart.get(i).nameStorage + " - Price: RM " + alShoppingCart.get(i).priceStorage);
-                System.out.println("Selected Processor: " + alShoppingCart.get(i).nameProcessor + " - Price: RM " + alShoppingCart.get(i).priceProcessor);
-                System.out.println("Subtotal: RM " + alShoppingCart.get(i).subtotal);
 
-                grandTotal += alShoppingCart.get(i).subtotal;
-            }
+            grandTotal = checkOutCart(alShoppingCart, basePrice, grandTotal);
 
             System.out.println("\nTotal item(s) in the shopping cart: " + alShoppingCart.size());
             System.out.println("Grand Total: RM " + grandTotal);
